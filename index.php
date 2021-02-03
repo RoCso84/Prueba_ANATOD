@@ -1,5 +1,5 @@
 <?php 
-    include 'php/class.database.php';   //Realiza la conexion
+    include 'class.database.php';       //Realiza la conexion
     include 'php/get_data.php';         //Obtiene los datos
     include 'php/add_edit.php';        //Agregar y editar datos
 ?>
