@@ -13,7 +13,6 @@
 <div class="tab">
   <button class="tablinks active" onclick="openTab(event, 'Clientes')"><i class="fas fa-user-friends"></i>  Clientes</button>
   <button class="tablinks" onclick="openTab(event, 'Localidades')"><i class="fas fa-map-marker-alt"></i>  Localidades</button>
-  <button class="tablinks" onclick="openTab(event, 'About')"><i class="fas fa-question-circle"></i>  About</button>
 </div>
 <!--------------------MODAL NUEVO CLIENTE------------------------>
         <div id="openModal" class="modalDialog">
