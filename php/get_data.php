@@ -1,3 +1,4 @@
+
 <?php
 //carga de datos desde BD
  $conDB=new class_db();    
@@ -17,10 +18,7 @@
  $result = $conDB->conn->query($sql);
  $res_clientes = $result->fetch_all(MYSQLI_ASSOC);
 
- $conDB=new class_db();    
- //obtener los datos de todos las localidades
- $conDB=new class_db();    
- //obtener los datos de todos las localidades
+ //obtener los datos de todos las clientes por localidad
  $sql2 = "SELECT 
              provincia_id as Id_prov,
              provincias.provincia_nombre as Provincia,
@@ -29,10 +27,28 @@
              count(*) as cantidad_clientes      
              FROM clientes 
              INNER JOIN localidades ON clientes.cliente_localidad=localidades.localidad_id
-             INNER JOIN provincias ON localidades.localidad_provincia=provincias.provincia_id            
-             GROUP BY cliente_localidad
+             INNER JOIN provincias ON localidades.localidad_provincia=provincias.provincia_id    
+             GROUP BY localidad_id       
          ";
 
 $result = $conDB->conn->query($sql2);
 $res_local = $result->fetch_all(MYSQLI_ASSOC);
+
+ //obtener los datos de todos las clientes por localidad
+ $sql3 = "SELECT 
+            localidad_id     as Id_loc,
+            localidad_nombre as Localidad,
+            provincia_nombre as Provincia
+            FROM
+                localidades 
+                inner JOIN
+                provincias ON localidades.localidad_provincia = provincias.provincia_id
+            ORDER BY provincia_nombre
+            ";
+
+$result = $conDB->conn->query($sql3);
+$res_localidades = $result->fetch_all(MYSQLI_ASSOC);
 ?>
+
+
+

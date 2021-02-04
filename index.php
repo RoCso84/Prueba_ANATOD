@@ -10,7 +10,6 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
 <div class="tab">
   <button class="tablinks active" onclick="openTab(event, 'Clientes')"><i class="fas fa-user-friends"></i>  Clientes</button>
   <button class="tablinks" onclick="openTab(event, 'Localidades')"><i class="fas fa-map-marker-alt"></i>  Localidades</button>
@@ -32,7 +31,7 @@
                         <select name="localidad" required>
                         <option value="" selected disabled hidden>Elija una localidad</option>
                             <?php
-                            foreach ($res_local as $data) {
+                            foreach ($res_localidades as $data) {
                                 echo("<option value=".$data["Id_loc"].">".$data["Localidad"]." (".$data["Provincia"].")</option>");
                             }
                             ?>
@@ -65,7 +64,7 @@
                         <select id="localidadEdit" name="localidad"required>
                         <option value="" selected disabled hidden>Elija una localidad</option>
                             <?php
-                            foreach ($res_local as $data) {
+                            foreach ($res_localidades as $data) {
                                 echo("<option value=".$data["Id_loc"].">".$data["Localidad"]." (".$data["Provincia"].")</option>");
                             }
                             ?>
@@ -143,12 +142,12 @@
                 //dar formato a los datos
                 foreach ($res_local as $loc_data) {
                     echo("
-                    <tr>
+                        <tr>
                             <td>".$loc_data["Id_prov"]."</td>
                             <td>".$loc_data["Provincia"]."</td>
                             <td>".$loc_data["Localidad"]."</td>
                             <td>".$loc_data["cantidad_clientes"]."</td>
-                    </tr>
+                        </tr>
                     ");
                 }
             ?>
